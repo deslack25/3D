@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корзина</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins|Lato&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .header .logo {
+      height: 40px;
+    }
+
+    /* Navigation Links */
+    .header .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .header .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      display: flex;
+      align-items: center;  /* Vertically center the text */
+    }
+
+    .header .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .header .icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .header .icons a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .header .icons a:hover {
+      text-decoration: underline;
+    }
+
+    /* Cart Sidebar */
+    .cart-sidebar {
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-sidebar h3 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .cart-sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-sidebar ul li {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .cart-sidebar .total {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .cart-sidebar .checkout-btn {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .cart-sidebar .checkout-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .footer .footer-info p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .footer .subscribe input {
+      padding: 10px;
+      width: 250px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .footer .subscribe button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .footer .subscribe button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <img src="images/logo.png" alt="logo" class="logo">
+      <div class="nav-links">
+        <a href="home.html">Домой</a>
+        <a href="katalog.html">Каталог</a>
+        <a href="#">Материалы и комплектующие</a>
+        <a href="support.html">Поддержка</a>
+        <a href="company.html">О компании</a>
+      </div>
+      <div class="icons">
+        <a href="#" class="search-icon">Поиск</a>
+        <a href="order.html" class="cart-icon">Корзина</a>
+        <a href="user.html" class="user-icon">Пользователь</a>
+      </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+      <h3>Корзина</h3>
+      <ul id="cart-list">
+        <!-- Сюда будут динамически добавляться товары -->
+      </ul>
+      <div class="total" id="total">
+        Общая стоимость: 0 руб
+      </div>
+      <button class="checkout-btn">Оформить заказ</button>
+    </div>
+  </div>
+
+  <script>
+    function renderCart() {
+      const cartList = document.getElementById('cart-list');
+      cartList.innerHTML = '';  // Очистить корзину
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let total = 0;
+
+      cart.forEach((product, index) => {
+        const cartItem = document.createElement('li');
+        cartItem.innerHTML = `${product.name} - ${product.price} руб <button onclick="removeFromCart(${index})">Удалить</button>`;
+        cartList.appendChild(cartItem);
+        total += product.price;
+      });
+
+      const totalElement = document.getElementById('total');
+      totalElement.textContent = `Общая стоимость: ${total} руб`;
+    }
+
+    // Удаление товара из корзины
+    function removeFromCart(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1); // Удаляем товар по индексу
+      localStorage.setItem('cart', JSON.stringify(cart)); // Сохраняем обновленную корзину в localStorage
+      renderCart(); // Перерисовываем корзину
+    }
+
+    // Инициализация корзины
+    renderCart();
+  </script>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-info">
+      <p>О компании</p>
+      <p>Связаться с нами</p>
+      <p>Способы оплаты</p>
+      <p>Политика конфиденциальности</p>
+    </div>
+    <div class="subscribe">
+      <p>Подпишитесь на нашу рассылку новостей</p>
+      <input type="email" placeholder="Введите ваш email">
+      <button>Подписаться</button>
+    </div>
+    <p>&copy; 2025 Все права защищены</p>
+  </div>
+
+</body>
+</html>

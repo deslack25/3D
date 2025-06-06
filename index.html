@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Принтеры и Аксессуары</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato|Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    /* Навигационная панель */
+    .navbar {
+      background-color: #2c3e50;
+      padding: 15px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 25px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #3498db;
+    }
+
+    /* Главный слайдер */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slider .prev, .slider .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .slider .prev {
+      left: 15px;
+    }
+
+    .slider .next {
+      right: 15px;
+    }
+
+    /* Блок товаров */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      justify-items: center;
+      margin: 50px 0;
+      padding: 0 30px;
+    }
+
+    .product-item {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
+    }
+
+    .product-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .product-name {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .product-price {
+      font-size: 16px;
+      color: #2c3e50;
+    }
+
+    /* Кнопка "Посмотреть все товары" */
+    .see-all {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn-see-all {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .btn-see-all:hover {
+      background-color: #2980b9;
+    }
+
+    /* Описание принтеров */
+    .about-printers {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .text-53 {
+      font-size: 18px;
+      color: #34495e;
+      margin-bottom: 20px;
+    }
+
+    .text-56 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    /* Футер */
+    .footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-logo p {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .footer-links p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .subscribe input {
+      padding: 10px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .subscribe button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .subscribe button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Панель навигации -->
+  <div class="navbar">
+    <a href="index.html">Домой</a>
+    <a href="katalog.html">Каталог</a>
+    <a href="material.html">Материалы и комплектующие</a>
+    <a href="support.html">Поддержка</a>
+    <a href="company.html">О компании</a>
+  </div>
+
+  <!-- Слайдер -->
+  <div class="slider">
+    <img src="images/slider.jpg" alt="3D Принтеры">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <!-- Информация о принтерах -->
+  <div class="about-printers">
+    <p class="text-53">
+      Мы предлагаем широкий выбор 3D-принтеров, которые подойдут как для начинающих, так и для профессионалов. 
+      Наши принтеры обеспечивают высокое качество печати и долговечность.
+    </p>
+    <p class="text-56">НАШИ ПРИНТЕРЫ</p>
+  </div>
+
+  <!-- Блок с товарами -->
+  <div class="products">
+    <div class="product-item">
+      <img src="images/creality_ender3_v3_se.png" alt="Creality Ender-3 V3 SE">
+      <p class="product-name">Creality Ender-3 V3 SE</p>
+      <p class="product-price">20,000 руб</p>
+    </div>
+    <div class="product-item">
+      <img src="images/comgrow_t500.png" alt="COMGROW T500">
+      <p class="product-name">COMGROW T500</p>
+      <p class="product-price">120,000 руб</p>
+    </div>
+    <div class="product-item">
+      <img src="images/creality_k1a.png" alt="Creality K1A">
+      <p class="product-name">Creality K1A</p>
+      <p class="product-price">40,000 руб</p>
+    </div>
+  </div>
+
+  <!-- Кнопка для просмотра всех товаров -->
+  <div class="see-all">
+    <a href="katalog.html">
+      <button class="btn-see-all">Посмотреть все принтеры</button>
+    </a>
+  </div>
+
+  <!-- Футер -->
+  <div class="footer">
+    <div class="footer-logo">
+      <p>LOGO</p>
+    </div>
+    <div class="footer-links">
+      <p>О компании</p>
+      <p>Связаться с нами</p>
+      <p>Способы оплаты</p>
+      <p>Политика конфиденциальности</p>
+      <p>Подпишитесь на нашу рассылку новостей</p>
+    </div>
+    <div class="subscribe">
+      <input type="email" placeholder="Введите ваш email">
+      <button>Подписаться</button>
+    </div>
+  </div>
+</body>
+</html>

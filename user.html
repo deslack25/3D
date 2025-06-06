@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins|Lato&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Header */
+    .header {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .header h2 {
+      font-size: 36px;
+      color: #333;
+    }
+
+    /* Формы и оформление */
+    .form-container {
+      margin-top: 40px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px 20px;
+      background-color: #4caf50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    .form-container button:hover {
+      background-color: #45a049;
+    }
+
+    /* Навигация */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      list-style: none;
+      margin-top: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .footer .footer-info p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .footer .subscribe input {
+      padding: 10px;
+      width: 250px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .footer .subscribe button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .footer .subscribe button:hover {
+      background-color: #45a049;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h2>Регистрация</h2>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="form-container">
+      <input type="text" id="name" placeholder="Введите ваше имя" required>
+      <input type="email" id="email" placeholder="Введите вашу почту" required>
+      <input type="password" id="password" placeholder="Введите пароль" required>
+      <input type="password" id="confirm-password" placeholder="Повторите пароль" required>
+      <button onclick="registerUser()">Зарегистрироваться</button>
+    </div>
+
+    <!-- Навигация -->
+    <div class="nav-links">
+      <a href="home.html">Главная</a>
+      <a href="katalog.html">Каталог</a>
+      <a href="contact.html">Контакты</a>
+      <a href="about.html">О компании</a>
+    </div>
+  </div>
+
+  <script>
+    // Функция для регистрации пользователя
+    function registerUser() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (name && email && password && confirmPassword) {
+        // Проверка паролей на совпадение
+        if (password !== confirmPassword) {
+          alert('Пароли не совпадают');
+          return;
+        }
+
+        // Сохранение данных в localStorage
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userPassword', password);
+
+        alert('Регистрация прошла успешно');
+        window.location.href = 'home.html'; // Переход на главную страницу после регистрации
+      } else {
+        alert('Пожалуйста, заполните все поля');
+      }
+    }
+  </script>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-info">
+      <p>Компания</p>
+      <p>О компании</p>
+      <p>Связаться с нами</p>
+      <p>Способы оплаты</p>
+      <p>Политика конфиденциальности</p>
+    </div>
+    <div class="subscribe">
+      <p>Подпишитесь на нашу рассылку новостей</p>
+      <input type="email" placeholder="Введите ваш email">
+      <button>Подписаться</button>
+    </div>
+    <p>&copy; 2025 Все права защищены</p>
+  </div>
+
+</body>
+</html>
