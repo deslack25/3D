@@ -89,7 +89,7 @@
 
     .product img {
       width: 100%;
-      max-width: 250px;  /* Ограничиваем максимальную ширину изображения */
+      max-width: 250px;
       height: auto;
       object-fit: contain;
       margin-bottom: 10px;
@@ -103,7 +103,22 @@
     .product .product-price {
       font-size: 20px;
       font-weight: bold;
-      margin-top: 0; /* Убираем отступ сверху */
+      margin-top: 0;
+    }
+
+    .product button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .product button:hover {
+      background-color: #45a049;
     }
 
     /* Footer */
@@ -140,7 +155,6 @@
     .footer .subscribe button:hover {
       background-color: #45a049;
     }
-   
   </style>
 </head>
 <body>
@@ -156,9 +170,9 @@
         <a href="company.html">О компании</a>
       </div>
       <div class="icons">
-       <a href="#" class="search-icon">Поиск</a>
-      <a href="order.html" class="cart-icon">Корзина</a>
-      <a href="user.html" class="user-icon">Пользователь</a>
+        <a href="#" class="search-icon">Поиск</a>
+        <a href="order.html" class="cart-icon">Корзина</a>
+        <a href="user.html" class="user-icon">Пользователь</a>
       </div>
     </div>
 
@@ -175,38 +189,47 @@
       <div class="product">
         <img src="images/COMGROW.png" alt="COMGROW">
         <p>COMGROW <br><span class="price">250 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('COMGROW', 250)">Купить</button>
       </div>
       <div class="product">
         <img src="images/PLA ESUN.png" alt="PLA ESUN">
         <p>PLA ESUN Белый <br><span class="price">1.800 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('PLA ESUN Белый', 1800)">Купить</button>
       </div>
       <div class="product">
         <img src="images/Creality набор инструментов.png" alt="Creality набор инструментов">
         <p>Creality набор инструментов <br><span class="price">1.800 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('Creality набор инструментов', 1800)">Купить</button>
       </div>
       <div class="product">
         <img src="images/COMGROW T500 Экран.png" alt="COMGROW T500 Экран">
         <p>COMGROW T500 Экран <br><span class="price">58.000 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('COMGROW T500 Экран', 58000)">Купить</button>
       </div>
       <div class="product">
         <img src="images/Creality (плата управления).png" alt="Creality плата управления">
         <p>Creality (плата управления) <br><span class="price">15.000 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('Creality плата управления', 15000)">Купить</button>
       </div>
       <div class="product">
         <img src="images/bambulab хотэнд.png" alt="bambulab хотэнд">
         <p>bambulab хотэнд <br><span class="price">1.800 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('bambulab хотэнд', 1800)">Купить</button>
       </div>
       <div class="product">
         <img src="images/Creality сопло.png" alt="Creality сопло">
         <p>Creality сопло <br><span class="price">300 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('Creality сопло', 300)">Купить</button>
       </div>
       <div class="product">
         <img src="images/Creality PETG.png" alt="Creality PETG">
         <p>Creality PETG <br><span class="price">1.200 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('Creality PETG', 1200)">Купить</button>
       </div>
       <div class="product">
         <img src="images/ESUN PETG.png" alt="ESUN PETG">
         <p>ESUN PETG <br><span class="price">1.500 руб</span></p>
+        <button class="buy-btn" onclick="addToCart('ESUN PETG', 1500)">Купить</button>
       </div>
     </div>
 
@@ -226,5 +249,16 @@
       <p>&copy; 2025 Все права защищены</p>
     </div>
   </div>
+
+  <script>
+    // Функция для добавления товара в корзину
+    function addToCart(productName, price) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const product = { name: productName, price: price };
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(productName + " добавлен в корзину!");
+    }
+  </script>
 </body>
 </html>
