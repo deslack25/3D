@@ -23,6 +23,7 @@
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 15px;
     }
 
     /* Header */
@@ -101,7 +102,22 @@
     .product .product-price {
       font-size: 20px;
       font-weight: bold;
-      margin-top: 0; /* Убираем отступ сверху */
+      margin-top: 0;
+    }
+
+    .product button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .product button:hover {
+      background-color: #45a049;
     }
 
     /* Footer */
@@ -118,14 +134,14 @@
       font-size: 18px;
     }
 
-    .subscribe input {
+    .footer .subscribe input {
       padding: 10px;
       width: 250px;
       margin-top: 10px;
       font-size: 16px;
     }
 
-    .subscribe button {
+    .footer .subscribe button {
       padding: 10px 20px;
       background-color: #4caf50;
       color: white;
@@ -135,7 +151,7 @@
       font-size: 16px;
     }
 
-    .subscribe button:hover {
+    .footer .subscribe button:hover {
       background-color: #45a049;
     }
   </style>
@@ -165,7 +181,7 @@
     </div>
 
     <!-- Title -->
-    <h2 class="page-title">домой / 3D PRINTERS</h2>
+    <h2 class="page-title">Домой / 3D Принтеры</h2>
 
     <!-- Products Grid -->
     <div class="product-container" id="catalog">
@@ -237,4 +253,3 @@
   </script>
 </body>
 </html>
-
