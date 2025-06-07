@@ -138,6 +138,64 @@
     .subscribe button:hover {
       background-color: #45a049;
     }
+    /* Адаптивность для мобильных устройств */
+    @media (max-width: 768px) {
+      .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .navbar a {
+        margin: 10px 0;
+      }
+
+      .products {
+        grid-template-columns: 1fr; /* Один товар в ряду */
+        gap: 20px;
+      }
+
+      .product-item {
+        width: 100%;
+        max-width: none;
+      }
+
+      .slider {
+        height: 200px;
+      }
+
+      .btn-see-all {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      .footer-logo p {
+        font-size: 24px;
+      }
+
+      .footer-links p {
+        font-size: 14px;
+      }
+
+      .subscribe input, .subscribe button {
+        font-size: 14px;
+      }
+    }
+
+    /* Дополнительные стили для мобильных устройств */
+    @media (max-width: 480px) {
+      .text-56 {
+        font-size: 20px;
+      }
+
+      .product-name {
+        font-size: 16px;
+      }
+
+      .product-price {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
